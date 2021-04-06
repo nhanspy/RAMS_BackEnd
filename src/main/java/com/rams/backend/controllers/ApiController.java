@@ -20,15 +20,10 @@ public class ApiController {
     @Autowired
     private ChuyenXeService chuyenXeService;
 
-    @GetMapping("/ben")
-    public List<Ben> getAllBen(){
-        System.out.println("Log: get all ben");
-        return benService.getAll();
-    }
+
 
     @GetMapping("/chuyenxe")
     public List<ChuyenXe> getAllChuyenXe(){
-        System.out.println("Log: get all Chuyen xe");
         return chuyenXeService.getAll();
     }
 }
