@@ -20,10 +20,4 @@ public class ApiController {
     @Autowired
     private ChuyenXeService chuyenXeService;
 
-
-
-    @GetMapping("/chuyenxe")
-    public List<ChuyenXe> getAllChuyenXe(){
-        return chuyenXeService.getAll();
-    }
 }
