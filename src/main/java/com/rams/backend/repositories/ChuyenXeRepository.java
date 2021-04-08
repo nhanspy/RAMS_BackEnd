@@ -6,6 +6,4 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface ChuyenXeRepository extends JpaRepository<ChuyenXe, String> {
 
-//    @Query(value = "")
-//    Object getTheoTrong();
 }

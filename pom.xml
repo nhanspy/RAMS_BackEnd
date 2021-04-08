@@ -56,9 +56,20 @@
             <scope>test</scope>
         </dependency>
         <dependency>
+<<<<<<< HEAD
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>2.0.1.Final</version>
+=======
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+>>>>>>> f9eeaf4 (push security)
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -70,10 +81,31 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
         <dependency>
+<<<<<<< HEAD
+=======
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+>>>>>>> f9eeaf4 (push security)
             <groupId>io.jsonwebtoken</groupId>
             <artifactId>jjwt</artifactId>
             <version>0.9.1</version>
         </dependency>
+<<<<<<< HEAD
+=======
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>2.0.1.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
+>>>>>>> f9eeaf4 (push security)
     </dependencies>
 
     <build>
