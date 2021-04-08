@@ -18,11 +18,13 @@ public class ChuyenXeController {
 
     @GetMapping("/chuyenxe")
     public List<ChuyenXe> tatCaChuyenXe(){
+
         return chuyenXeService.getAll();
     }
 
     @GetMapping("/chuyenxe/{id}")
     public ChuyenXe layChuyenXeTheoId(@PathVariable(name = "id") String id){
+//        return chuyenXeService.get(id).toString();
         return chuyenXeService.get(id);
     }
 
