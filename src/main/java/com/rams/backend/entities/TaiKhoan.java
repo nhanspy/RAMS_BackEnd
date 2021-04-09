@@ -138,7 +138,7 @@ public class TaiKhoan {
                 ", gioiTinh=" + gioiTinh +
                 ", taiKhoan='" + taiKhoan + '\'' +
                 ", matKhau='" + matKhau + '\'' +
-                ", loaiTk=" + loaiTk +
+                ", loaiTk=" + loaiTk.getTenLoai() +
 //                ", veXeNguoiDungs=" + veXeNguoiDungs +
 //                ", veXeNhaXes=" + veXeNhaXes +
                 '}';
