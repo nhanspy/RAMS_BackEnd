@@ -20,8 +20,9 @@ public class TaiKhoanController {
     }
 
     @GetMapping("/taikhoan/{id}")
-    public TaiKhoan layTaiKhoanTheoId(@PathVariable(name = "id") String id){
-        return service.get(id);
+    public String layTaiKhoanTheoId(@PathVariable(name = "id") String id){
+        return service.get(id).toString();
+//        return service.get(id);
     }
 
     @PostMapping("/taikhoan")
