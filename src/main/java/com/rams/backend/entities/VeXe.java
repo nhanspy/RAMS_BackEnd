@@ -1,9 +1,9 @@
 package com.rams.backend.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -13,20 +13,29 @@ public class VeXe {
     private String maTaiKhoanNhaXe;
     @Temporal(TemporalType.DATE)
     private Date thoiGian;
-    private String maNguoiDung;
+
+    @ManyToOne
+    @JoinColumn(name="ma_nguoi_dung")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private TaiKhoan taiKhoanNguoiDung;
+
+    @ManyToOne
+    @JoinColumn(name="ma_nha_xe")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private TaiKhoan taiKhoanNhaXe;
+
     private float giaTien;
-    private String maGhe;
+
+    @ManyToOne
+    @JoinColumn(name="ma_ghe")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Ghe ghe;
+
 
     public VeXe() {
-    }
-
-    public VeXe(String maVe, String maTaiKhoanNhaXe, Date thoiGian, String maNguoiDung, float giaTien, String maGhe) {
-        this.maVe = maVe;
-        this.maTaiKhoanNhaXe = maTaiKhoanNhaXe;
-        this.thoiGian = thoiGian;
-        this.maNguoiDung = maNguoiDung;
-        this.giaTien = giaTien;
-        this.maGhe = maGhe;
     }
 
     public String getMaVe() {
@@ -53,27 +62,11 @@ public class VeXe {
         this.thoiGian = thoiGian;
     }
 
-    public String getMaNguoiDung() {
-        return maNguoiDung;
-    }
-
-    public void setMaNguoiDung(String maNguoiDung) {
-        this.maNguoiDung = maNguoiDung;
-    }
-
     public float getGiaTien() {
         return giaTien;
     }
 
     public void setGiaTien(float giaTien) {
         this.giaTien = giaTien;
-    }
-
-    public String getMaGhe() {
-        return maGhe;
-    }
-
-    public void setMaGhe(String maGhe) {
-        this.maGhe = maGhe;
     }
 }
