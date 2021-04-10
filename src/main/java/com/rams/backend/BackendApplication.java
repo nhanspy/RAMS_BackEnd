@@ -1,9 +1,5 @@
 package com.rams.backend;
 
-<<<<<<< HEAD
-=======
-import org.springframework.boot.CommandLineRunner;
->>>>>>> 7de8416 (reset ve entity relationship)
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,9 +10,5 @@ public class BackendApplication {
         SpringApplication.run(BackendApplication.class, args);
 
     }
-<<<<<<< HEAD
-
-=======
->>>>>>> 7de8416 (reset ve entity relationship)
 }
 
