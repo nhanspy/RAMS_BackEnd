@@ -1,19 +1,16 @@
 package com.rams.backend.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
-@Table(name = "tai_khoan")
 public class TaiKhoan {
     @Id
-    @Column(name = "ma_tai_khoan")
     private String maTaiKhoan;
+    private String maLoai;
     private String ten;
     private String soDienThoai;
     @Temporal(TemporalType.DATE)
@@ -26,8 +23,9 @@ public class TaiKhoan {
     public TaiKhoan() {
     }
 
-    public TaiKhoan(String maTaiKhoan, String ten, String soDienThoai, Date ngaySinh, String diaChi, boolean gioiTinh, String taiKhoan, String matKhau, LoaiTk loaiTk) {
+    public TaiKhoan(String maTaiKhoan, String maLoai, String ten, String soDienThoai, Date ngaySinh, String diaChi, boolean gioiTinh, String taiKhoan, String matKhau) {
         this.maTaiKhoan = maTaiKhoan;
+        this.maLoai = maLoai;
         this.ten = ten;
         this.soDienThoai = soDienThoai;
         this.ngaySinh = ngaySinh;
@@ -35,15 +33,6 @@ public class TaiKhoan {
         this.gioiTinh = gioiTinh;
         this.taiKhoan = taiKhoan;
         this.matKhau = matKhau;
-        this.loaiTk = loaiTk;
-    }
-
-    public LoaiTk getLoaiTk() {
-        return loaiTk;
-    }
-
-    public void setLoaiTk(LoaiTk loaiTk) {
-        this.loaiTk = loaiTk;
     }
 
     public String getMaTaiKhoan() {
@@ -54,6 +43,13 @@ public class TaiKhoan {
         this.maTaiKhoan = maTaiKhoan;
     }
 
+    public String getMaLoai() {
+        return maLoai;
+    }
+
+    public void setMaLoai(String maLoai) {
+        this.maLoai = maLoai;
+    }
 
     public String getTen() {
         return ten;
@@ -109,38 +105,5 @@ public class TaiKhoan {
 
     public void setMatKhau(String matKhau) {
         this.matKhau = matKhau;
-    }
-
-    @ManyToOne
-    @JoinColumn(name="ma_loai")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private LoaiTk loaiTk;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "taiKhoanNguoiDung")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Set<VeXe> veXeNguoiDungs = new HashSet<VeXe>();
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "taiKhoanNhaXe")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Set<VeXe> veXeNhaXes = new HashSet<VeXe>();
-
-    @Override
-    public String toString() {
-        return "TaiKhoan{" +
-                "maTaiKhoan='" + maTaiKhoan + '\'' +
-                ", ten='" + ten + '\'' +
-                ", soDienThoai='" + soDienThoai + '\'' +
-                ", ngaySinh=" + ngaySinh +
-                ", diaChi='" + diaChi + '\'' +
-                ", gioiTinh=" + gioiTinh +
-                ", taiKhoan='" + taiKhoan + '\'' +
-                ", matKhau='" + matKhau + '\'' +
-                ", loaiTk=" + loaiTk.getTenLoai() +
-//                ", veXeNguoiDungs=" + veXeNguoiDungs +
-//                ", veXeNhaXes=" + veXeNhaXes +
-                '}';
     }
 }

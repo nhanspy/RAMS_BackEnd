@@ -1,16 +1,11 @@
 package com.rams.backend.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
-import javax.persistence.*;
-import java.util.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 @Entity
-@Table(name = "loai_tk")
 public class LoaiTk {
     @Id
-    @Column(name = "ma_loai")
     private String maLoai;
     private String tenLoai;
 
@@ -36,19 +31,5 @@ public class LoaiTk {
 
     public void setTenLoai(String tenLoai) {
         this.tenLoai = tenLoai;
-    }
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "loaiTk")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Set<TaiKhoan> taiKhoans = new HashSet<>();
-
-    @Override
-    public String toString() {
-        return "LoaiTk{" +
-                "maLoai='" + maLoai + '\'' +
-                ", tenLoai='" + tenLoai + '\'' +
-//                ", taiKhoans=" + taiKhoans +
-                '}';
     }
 }
