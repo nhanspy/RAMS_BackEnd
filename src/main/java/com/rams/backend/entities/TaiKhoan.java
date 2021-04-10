@@ -117,15 +117,15 @@ public class TaiKhoan {
     @ToString.Exclude
     private LoaiTk loaiTk;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "taiKhoanNguoiDung")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Set<VeXe> veXeNguoiDungs = new HashSet<VeXe>();
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "taiKhoanNhaXe")
-    @EqualsAndHashCode.Exclude
-    @ToString.Exclude
-    private Set<VeXe> veXeNhaXes = new HashSet<VeXe>();
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "taiKhoanNguoiDung")
+//    @EqualsAndHashCode.Exclude
+//    @ToString.Exclude
+//    private Set<VeXe> veXeNguoiDungs = new HashSet<VeXe>();
+//
+//    @OneToMany(cascade = CascadeType.ALL, mappedBy = "taiKhoanNhaXe")
+//    @EqualsAndHashCode.Exclude
+//    @ToString.Exclude
+//    private Set<VeXe> veXeNhaXes = new HashSet<VeXe>();
 
     @Override
     public String toString() {

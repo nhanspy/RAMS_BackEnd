@@ -1,6 +1,11 @@
 package com.rams.backend.entities.role_user;
 
 
+import com.rams.backend.entities.LoaiTk;
+import com.rams.backend.entities.VeXe;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -96,6 +101,16 @@ public class User {
         this.email = email;
         this.password = password;
     }
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userNguoiDung")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<VeXe> veXeNguoiDungs = new HashSet<VeXe>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userNhaXe")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<VeXe> veXeNhaXes = new HashSet<VeXe>();
 
     public Long getId() {
         return id;

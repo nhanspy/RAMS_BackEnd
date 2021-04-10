@@ -1,5 +1,6 @@
 package com.rams.backend.entities;
 
+import com.rams.backend.entities.role_user.User;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
@@ -18,13 +19,13 @@ public class VeXe {
     @JoinColumn(name="ma_nguoi_dung")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private TaiKhoan taiKhoanNguoiDung;
+    private User userNguoiDung;
 
     @ManyToOne
     @JoinColumn(name="ma_nha_xe")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    private TaiKhoan taiKhoanNhaXe;
+    private User userNhaXe;
 
     private float giaTien;
 
@@ -36,6 +37,30 @@ public class VeXe {
 
 
     public VeXe() {
+    }
+
+    public User getUserNguoiDung() {
+        return userNguoiDung;
+    }
+
+    public void setUserNguoiDung(User userNguoiDung) {
+        this.userNguoiDung = userNguoiDung;
+    }
+
+    public User getUserNhaXe() {
+        return userNhaXe;
+    }
+
+    public void setUserNhaXe(User userNhaXe) {
+        this.userNhaXe = userNhaXe;
+    }
+
+    public Ghe getGhe() {
+        return ghe;
+    }
+
+    public void setGhe(Ghe ghe) {
+        this.ghe = ghe;
     }
 
     public String getMaVe() {
