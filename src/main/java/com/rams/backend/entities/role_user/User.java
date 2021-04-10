@@ -1,13 +1,14 @@
 package com.rams.backend.entities.role_user;
 
 
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Table(	name = "users",
@@ -47,6 +48,34 @@ public class User {
     private Set<Role> roles = new HashSet<>();
 
     public User() {
+    }
+
+    public User(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password, String ten, String soDienThoai) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.ten = ten;
+        this.soDienThoai = soDienThoai;
+    }
+
+    public User(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password, String ten, String soDienThoai, String diaChi) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.ten = ten;
+        this.soDienThoai = soDienThoai;
+        this.diaChi = diaChi;
+    }
+
+    public User(@NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password, String ten, String soDienThoai, Date ngaySinh, String diaChi, boolean gioiTinh) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.ten = ten;
+        this.soDienThoai = soDienThoai;
+        this.ngaySinh = ngaySinh;
+        this.diaChi = diaChi;
+        this.gioiTinh = gioiTinh;
     }
 
     public User(Long id, @NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password, String ten, String soDienThoai, Date ngaySinh, String diaChi, boolean gioiTinh, Set<Role> roles) {
