@@ -7,7 +7,6 @@ import com.rams.backend.repositories.ChuyenXeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
 import java.util.List;
 
 @Service
@@ -30,10 +29,4 @@ public class ChuyenXeService {
     public List<ChuyenXe> getAll() {
         return repository.findAll();
     }
-
-//    public List<Object> vietChoVui {
-//        List<Object> list = null;
-//        list = repository.
-//        return list;
-//    }
 }
