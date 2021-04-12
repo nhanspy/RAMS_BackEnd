@@ -1,7 +1,6 @@
 package com.rams.backend.entities.role_user;
 
 
-import com.rams.backend.entities.LoaiTk;
 import com.rams.backend.entities.VeXe;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;

@@ -63,20 +63,20 @@ public class Ben {
     public void setTinhThanh(TinhThanh tinhThanh) {
         this.tinhThanh = tinhThanh;
     }
-
-    public Set<ChuyenXe> getChuyenXeBenDi() {
-        return chuyenXeBenDi;
-    }
-
-    public void setChuyenXeBenDi(Set<ChuyenXe> chuyenXeBenDi) {
-        this.chuyenXeBenDi = chuyenXeBenDi;
-    }
-
-    public Set<ChuyenXe> getChuyenXeBenDen() {
-        return chuyenXeBenDen;
-    }
-
-    public void setChuyenXeBenDen(Set<ChuyenXe> chuyenXeBenDen) {
-        this.chuyenXeBenDen = chuyenXeBenDen;
-    }
+//
+//    public Set<ChuyenXe> getChuyenXeBenDi() {
+//        return chuyenXeBenDi;
+//    }
+//
+//    public void setChuyenXeBenDi(Set<ChuyenXe> chuyenXeBenDi) {
+//        this.chuyenXeBenDi = chuyenXeBenDi;
+//    }
+//
+//    public Set<ChuyenXe> getChuyenXeBenDen() {
+//        return chuyenXeBenDen;
+//    }
+//
+//    public void setChuyenXeBenDen(Set<ChuyenXe> chuyenXeBenDen) {
+//        this.chuyenXeBenDen = chuyenXeBenDen;
+//    }
 }

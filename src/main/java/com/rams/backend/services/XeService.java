@@ -1,8 +1,6 @@
 package com.rams.backend.services;
 
-import com.rams.backend.entities.LoaiTk;
 import com.rams.backend.entities.Xe;
-import com.rams.backend.repositories.LoaiTkRepository;
 import com.rams.backend.repositories.XeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -38,13 +38,13 @@ public class Ghe {
     public Ghe() {
     }
 
-    public Xe getXe() {
-        return xe;
-    }
-
-    public void setXe(Xe xe) {
-        this.xe = xe;
-    }
+//    public Xe getXe() {
+//        return xe;
+//    }
+//
+//    public void setXe(Xe xe) {
+//        this.xe = xe;
+//    }
 
     public Ghe(String maGhe, LoaiGhe loaiGhe, TrangThaiGhe trangThaiGhe) {
         this.maGhe = maGhe;

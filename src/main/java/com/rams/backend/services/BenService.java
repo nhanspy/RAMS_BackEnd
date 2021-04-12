@@ -5,6 +5,7 @@ import com.rams.backend.repositories.BenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -27,4 +28,15 @@ public class BenService {
     public List<Ben> getAll() {
         return repository.findAll();
     }
+
+    public List<Ben> getAllByTinhThanh(String id) {
+        List<Ben> bens =  repository.findAll();
+        List<Ben> bensResult = new ArrayList<Ben>();
+        for (Ben ben :
+                bens) {
+            if (ben.getTinhThanh().getMaTinh().equals(id)) bensResult.add(ben);
+        }
+        return bensResult;
+    }
+
 }

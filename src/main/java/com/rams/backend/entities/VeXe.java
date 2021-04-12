@@ -11,7 +11,7 @@ import java.util.Date;
 public class VeXe {
     @Id
     private String maVe;
-    private String maTaiKhoanNhaXe;
+//    private String maTaiKhoanNhaXe;
     @Temporal(TemporalType.DATE)
     private Date thoiGian;
 
@@ -22,10 +22,16 @@ public class VeXe {
     private User userNguoiDung;
 
     @ManyToOne
-    @JoinColumn(name="ma_nha_xe")
+    @JoinColumn(name="ma_tai_khoan_nha_xe")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private User userNhaXe;
+
+    @ManyToOne
+    @JoinColumn(name="ma_chuyen_xe")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private ChuyenXe chuyenXe;
 
     private float giaTien;
 
@@ -37,6 +43,16 @@ public class VeXe {
 
 
     public VeXe() {
+    }
+
+    public VeXe(String maVe, Date thoiGian, User userNguoiDung, User userNhaXe, ChuyenXe chuyenXe, float giaTien, Ghe ghe) {
+        this.maVe = maVe;
+        this.thoiGian = thoiGian;
+        this.userNguoiDung = userNguoiDung;
+        this.userNhaXe = userNhaXe;
+        this.chuyenXe = chuyenXe;
+        this.giaTien = giaTien;
+        this.ghe = ghe;
     }
 
     public User getUserNguoiDung() {
@@ -55,6 +71,14 @@ public class VeXe {
         this.userNhaXe = userNhaXe;
     }
 
+    public ChuyenXe getChuyenXe() {
+        return chuyenXe;
+    }
+
+    public void setChuyenXe(ChuyenXe chuyenXe) {
+        this.chuyenXe = chuyenXe;
+    }
+
     public Ghe getGhe() {
         return ghe;
     }
@@ -69,14 +93,6 @@ public class VeXe {
 
     public void setMaVe(String maVe) {
         this.maVe = maVe;
-    }
-
-    public String getMaTaiKhoanNhaXe() {
-        return maTaiKhoanNhaXe;
-    }
-
-    public void setMaTaiKhoanNhaXe(String maTaiKhoanNhaXe) {
-        this.maTaiKhoanNhaXe = maTaiKhoanNhaXe;
     }
 
     public Date getThoiGian() {

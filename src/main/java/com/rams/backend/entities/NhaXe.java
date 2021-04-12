@@ -45,12 +45,4 @@ public class NhaXe {
         this.tenNhaXe = tenNhaXe;
     }
 
-    @Override
-    public String toString() {
-        return "NhaXe{" +
-                "maNhaXe='" + maNhaXe + '\'' +
-                ", tenNhaXe='" + tenNhaXe + '\'' +
-                ", xes=" + xes +
-                '}';
-    }
 }

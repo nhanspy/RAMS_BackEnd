@@ -71,13 +71,13 @@ public class Xe {
         this.ghes = ghes;
     }
 
-    public Set<ChuyenXe> getChuyenXes() {
-        return chuyenXes;
-    }
-
-    public void setChuyenXes(Set<ChuyenXe> chuyenXes) {
-        this.chuyenXes = chuyenXes;
-    }
+//    public Set<ChuyenXe> getChuyenXes() {
+//        return chuyenXes;
+//    }
+//
+//    public void setChuyenXes(Set<ChuyenXe> chuyenXes) {
+//        this.chuyenXes = chuyenXes;
+//    }
 
     public NhaXe getNhaXe() {
         return nhaXe;
@@ -95,15 +95,4 @@ public class Xe {
         this.loaiXe = loaiXe;
     }
 
-    @Override
-    public String toString() {
-        return "Xe{" +
-                "maXe='" + maXe + '\'' +
-                ", bienSoXe='" + bienSoXe + '\'' +
-                ", ghes=" + ghes +
-                ", chuyenXes=" + chuyenXes +
-                ", nhaXe=" + nhaXe +
-                ", loaiXe=" + loaiXe +
-                '}';
-    }
 }

@@ -5,6 +5,8 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class ChuyenXe {
@@ -30,6 +32,11 @@ public class ChuyenXe {
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     private Xe xe;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "chuyenXe")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<VeXe> veXes = new HashSet<VeXe>();
 
     public ChuyenXe() {
     }
@@ -67,5 +74,29 @@ public class ChuyenXe {
 
     public void setThoiGian(Date thoiGian) {
         this.thoiGian = thoiGian;
+    }
+
+    public Ben getBenDi() {
+        return benDi;
+    }
+
+    public void setBenDi(Ben benDi) {
+        this.benDi = benDi;
+    }
+
+    public Ben getBenDen() {
+        return benDen;
+    }
+
+    public void setBenDen(Ben benDen) {
+        this.benDen = benDen;
+    }
+
+    public Xe getXe() {
+        return xe;
+    }
+
+    public void setXe(Xe xe) {
+        this.xe = xe;
     }
 }

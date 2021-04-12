@@ -29,4 +29,5 @@ public class ChuyenXeService {
     public List<ChuyenXe> getAll() {
         return repository.findAll();
     }
+
 }

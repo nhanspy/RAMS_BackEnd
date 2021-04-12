@@ -24,18 +24,18 @@ public class TrangThaiGhe {
     public TrangThaiGhe() {
     }
 
-    public Set<Ghe> getGhes() {
-        return ghes;
-    }
-
-    public void setGhes(Set<Ghe> ghes) {
-        this.ghes = ghes;
-    }
+//    public Set<Ghe> getGhes() {
+//        return ghes;
+//    }
+//
+//    public void setGhes(Set<Ghe> ghes) {
+//        this.ghes = ghes;
+//    }
 
     public TrangThaiGhe(String maTrangThai, String tenTrangThai, Set<Ghe> ghes) {
         this.maTrangThai = maTrangThai;
         this.tenTrangThai = tenTrangThai;
-        this.ghes = ghes;
+//        this.ghes = ghes;
     }
 
     public String getMaTrangThai() {

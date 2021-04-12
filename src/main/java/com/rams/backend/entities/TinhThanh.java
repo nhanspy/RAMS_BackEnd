@@ -44,4 +44,12 @@ public class TinhThanh {
     public void setTenTinh(String tenTinh) {
         this.tenTinh = tenTinh;
     }
+
+//    public Set<Ben> getBens() {
+//        return bens;
+//    }
+//
+//    public void setBens(Set<Ben> bens) {
+//        this.bens = bens;
+//    }
 }
