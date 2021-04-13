@@ -26,7 +26,7 @@ public class TinhThanhController {
 
     @PostMapping("/tinhthanh")
     public void luuLoaiTinhThanh(@RequestBody TinhThanh TinhThanh){
-        System.out.println(TinhThanh.toString());
+//        System.out.println(TinhThanh.toString());
         service.save(TinhThanh);
     }
 

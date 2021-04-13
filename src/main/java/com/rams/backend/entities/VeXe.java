@@ -1,32 +1,90 @@
 package com.rams.backend.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import com.rams.backend.entities.role_user.User;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
 public class VeXe {
     @Id
     private String maVe;
-    private String maTaiKhoanNhaXe;
+//    private String maTaiKhoanNhaXe;
     @Temporal(TemporalType.DATE)
     private Date thoiGian;
-    private String maNguoiDung;
+
+    @ManyToOne
+    @JoinColumn(name="ma_nguoi_dung")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private User userNguoiDung;
+
+    @ManyToOne
+    @JoinColumn(name="ma_tai_khoan_nha_xe")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private User userNhaXe;
+
+    @ManyToOne
+    @JoinColumn(name="ma_chuyen_xe")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private ChuyenXe chuyenXe;
+
     private float giaTien;
-    private String maGhe;
+
+    @ManyToOne
+    @JoinColumn(name="ma_ghe")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Ghe ghe;
+
 
     public VeXe() {
     }
 
-    public VeXe(String maVe, String maTaiKhoanNhaXe, Date thoiGian, String maNguoiDung, float giaTien, String maGhe) {
+    public VeXe(String maVe, Date thoiGian, User userNguoiDung, User userNhaXe, ChuyenXe chuyenXe, float giaTien, Ghe ghe) {
         this.maVe = maVe;
-        this.maTaiKhoanNhaXe = maTaiKhoanNhaXe;
         this.thoiGian = thoiGian;
-        this.maNguoiDung = maNguoiDung;
+        this.userNguoiDung = userNguoiDung;
+        this.userNhaXe = userNhaXe;
+        this.chuyenXe = chuyenXe;
         this.giaTien = giaTien;
-        this.maGhe = maGhe;
+        this.ghe = ghe;
+    }
+
+    public User getUserNguoiDung() {
+        return userNguoiDung;
+    }
+
+    public void setUserNguoiDung(User userNguoiDung) {
+        this.userNguoiDung = userNguoiDung;
+    }
+
+    public User getUserNhaXe() {
+        return userNhaXe;
+    }
+
+    public void setUserNhaXe(User userNhaXe) {
+        this.userNhaXe = userNhaXe;
+    }
+
+    public ChuyenXe getChuyenXe() {
+        return chuyenXe;
+    }
+
+    public void setChuyenXe(ChuyenXe chuyenXe) {
+        this.chuyenXe = chuyenXe;
+    }
+
+    public Ghe getGhe() {
+        return ghe;
+    }
+
+    public void setGhe(Ghe ghe) {
+        this.ghe = ghe;
     }
 
     public String getMaVe() {
@@ -37,14 +95,6 @@ public class VeXe {
         this.maVe = maVe;
     }
 
-    public String getMaTaiKhoanNhaXe() {
-        return maTaiKhoanNhaXe;
-    }
-
-    public void setMaTaiKhoanNhaXe(String maTaiKhoanNhaXe) {
-        this.maTaiKhoanNhaXe = maTaiKhoanNhaXe;
-    }
-
     public Date getThoiGian() {
         return thoiGian;
     }
@@ -53,27 +103,11 @@ public class VeXe {
         this.thoiGian = thoiGian;
     }
 
-    public String getMaNguoiDung() {
-        return maNguoiDung;
-    }
-
-    public void setMaNguoiDung(String maNguoiDung) {
-        this.maNguoiDung = maNguoiDung;
-    }
-
     public float getGiaTien() {
         return giaTien;
     }
 
     public void setGiaTien(float giaTien) {
         this.giaTien = giaTien;
-    }
-
-    public String getMaGhe() {
-        return maGhe;
-    }
-
-    public void setMaGhe(String maGhe) {
-        this.maGhe = maGhe;
     }
 }

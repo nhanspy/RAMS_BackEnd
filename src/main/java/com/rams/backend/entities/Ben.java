@@ -1,22 +1,43 @@
 package com.rams.backend.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Ben {
     @Id
     private String maBen;
     private String tenBen;
-    private String maTinh;
+
+    @ManyToOne
+    @JoinColumn(name="ma_tinh")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private TinhThanh tinhThanh;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "benDi")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<ChuyenXe> chuyenXeBenDi = new HashSet<ChuyenXe>();
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "benDen")
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
+    private Set<ChuyenXe> chuyenXeBenDen = new HashSet<ChuyenXe>();
 
     public Ben() {
     }
 
-    public Ben(String maBen, String tenBen, String maTinh) {
+    public Ben(String maBen, String tenBen, TinhThanh tinhThanh, Set<ChuyenXe> chuyenXeBenDi, Set<ChuyenXe> chuyenXeBenDen) {
         this.maBen = maBen;
         this.tenBen = tenBen;
-        this.maTinh = maTinh;
+        this.tinhThanh = tinhThanh;
+        this.chuyenXeBenDi = chuyenXeBenDi;
+        this.chuyenXeBenDen = chuyenXeBenDen;
     }
 
     public String getMaBen() {
@@ -35,11 +56,27 @@ public class Ben {
         this.tenBen = tenBen;
     }
 
-    public String getMaTinh() {
-        return maTinh;
+    public TinhThanh getTinhThanh() {
+        return tinhThanh;
     }
 
-    public void setMaTinh(String maTinh) {
-        this.maTinh = maTinh;
+    public void setTinhThanh(TinhThanh tinhThanh) {
+        this.tinhThanh = tinhThanh;
     }
+//
+//    public Set<ChuyenXe> getChuyenXeBenDi() {
+//        return chuyenXeBenDi;
+//    }
+//
+//    public void setChuyenXeBenDi(Set<ChuyenXe> chuyenXeBenDi) {
+//        this.chuyenXeBenDi = chuyenXeBenDi;
+//    }
+//
+//    public Set<ChuyenXe> getChuyenXeBenDen() {
+//        return chuyenXeBenDen;
+//    }
+//
+//    public void setChuyenXeBenDen(Set<ChuyenXe> chuyenXeBenDen) {
+//        this.chuyenXeBenDen = chuyenXeBenDen;
+//    }
 }

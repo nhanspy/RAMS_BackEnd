@@ -25,8 +25,13 @@ public class BenController {
 
     @PostMapping("/ben")
     public void luuBen(@RequestBody Ben ben){
-        System.out.println(ben.toString());
+//        System.out.println(ben.toString());
         benService.save(ben);
+    }
+
+    @GetMapping("/bentheotinh/{id}")
+    public List<Ben> tatCaBenVoiMaTinh(@PathVariable(name = "id")String id){
+        return benService.getAllByTinhThanh(id);
     }
     
     @DeleteMapping("/ben/{id}")
