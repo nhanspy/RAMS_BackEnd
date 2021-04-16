@@ -18,7 +18,7 @@ import javax.validation.constraints.Size;
 @Table(	name = "users",
         uniqueConstraints = {
                 @UniqueConstraint(columnNames = "username"),
-                @UniqueConstraint(columnNames = "email")
+                @UniqueConstraint(columnNames = "email"),
         })
 public class User {
     @Id
@@ -44,6 +44,15 @@ public class User {
     private Date ngaySinh;
     private String diaChi;
     private boolean gioiTinh;
+    private String verificationCode;
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
@@ -95,10 +104,12 @@ public class User {
         this.roles = roles;
     }
 
-    public User(String username, String email, String password) {
+    public User(String username, String email, String password, String diaChi, Integer soDienThoai) {
         this.username = username;
         this.email = email;
         this.password = password;
+        this.diaChi = diaChi;
+
     }
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userNguoiDung")

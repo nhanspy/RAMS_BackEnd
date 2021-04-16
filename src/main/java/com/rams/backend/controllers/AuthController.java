@@ -92,6 +92,9 @@ public class AuthController {
         // Create new user's account
         User user = new User(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
+                signUpRequest.getSoDienThoai(),
+                signUpRequest.getTen(),
+                signUpRequest.getDiaChi(),
                 encoder.encode(signUpRequest.getPassword()));
 
         Set<String> strRoles = signUpRequest.getRole();
@@ -200,7 +203,7 @@ public class AuthController {
         user.setRoles(roles);
         userRepository.save(user);
 
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        return ResponseEntity.ok(new MessageResponse("Đăng ký thành công!"));
     }
 
 
@@ -224,7 +227,9 @@ public class AuthController {
                 encoder.encode(signUpRequest.getPassword()),
                 signUpRequest.getTen(),
                 signUpRequest.getSoDienThoai(),
-                signUpRequest.getDiaChi()
+                signUpRequest.getNgaySinh(),
+                signUpRequest.getDiaChi(),
+                signUpRequest.isGioiTinh()
         );
 
         Set<String> strRoles = signUpRequest.getRole();
@@ -269,7 +274,7 @@ public class AuthController {
         user.setRoles(roles);
         userRepository.save(user);
 
-        return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+        return ResponseEntity.ok(new MessageResponse("Đăng ký thành công!"));
     }
 
 
@@ -290,10 +295,10 @@ public class AuthController {
         // Create new user's account
         User user = new User(signUpRequest.getUsername(),
                 signUpRequest.getEmail(),
-                encoder.encode(signUpRequest.getPassword()),
+                signUpRequest.getSoDienThoai(),
                 signUpRequest.getTen(),
-                signUpRequest.getSoDienThoai()
-        );
+                signUpRequest.getDiaChi(),
+                encoder.encode(signUpRequest.getPassword()));
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
