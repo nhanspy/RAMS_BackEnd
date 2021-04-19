@@ -38,6 +38,7 @@ public class ResetPassController {
     }
 
     @PostMapping("/reset-password")
+
     public ResponseEntity<?> reset(@RequestBody MailRequest mailRequest) throws MessagingException, UnsupportedEncodingException {
 
         if (resetPassService.existsByEmail(mailRequest.getEmail()) != null) {
@@ -49,7 +50,6 @@ public class ResetPassController {
                 .badRequest()
                 .body(new MessageResponse("Tài khoản không đúng"));
     }
-
 
     @PostMapping("/verify-password")
     public ResponseEntity<?> VerifyPassword(@RequestBody VerifyRequest code) {
