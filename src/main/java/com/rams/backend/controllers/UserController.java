@@ -20,6 +20,11 @@ public class UserController {
         return userService.getAll();
     }
 
+    @PostMapping("/user")
+    public void luuBen(@RequestBody User user){
+        userService.save(user);
+    }
+
     @GetMapping("/user/{id}")
     public User layBenTheoId(@PathVariable(name = "id") long id){
         return userService.get(id);

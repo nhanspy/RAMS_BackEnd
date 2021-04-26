@@ -9,9 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
 
 import com.paypal.api.payments.Links;
 import com.paypal.api.payments.Payment;
@@ -30,8 +29,10 @@ public class PaymentController {
     @Autowired
     private PaypalService paypalService;
 
-    @GetMapping("/")
-    public String index(){
+    @GetMapping("/{price}")
+    public String index(@PathVariable(name = "price") double price, Model model){
+        price *= 0.000043;
+        model.addAttribute("price", price);
         return "index";
     }
 
@@ -69,7 +70,7 @@ public class PaymentController {
         try {
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if(payment.getState().equals("approved")){
-                return "success";
+                return "redirect:http://localhost:4200/xuatve";
             }
         } catch (PayPalRESTException e) {
             log.error(e.getMessage());

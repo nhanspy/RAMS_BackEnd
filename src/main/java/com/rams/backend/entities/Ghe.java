@@ -30,6 +30,11 @@ public class Ghe {
     @ToString.Exclude
     private Xe xe;
 
+    private int soGhe;
+    private int tang;
+    private int hang;
+    private float gia;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "ghe")
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
@@ -38,18 +43,29 @@ public class Ghe {
     public Ghe() {
     }
 
-//    public Xe getXe() {
-//        return xe;
-//    }
-//
-//    public void setXe(Xe xe) {
-//        this.xe = xe;
-//    }
+    public String getXe() {
+        return xe.getMaXe();
+    }
 
-    public Ghe(String maGhe, LoaiGhe loaiGhe, TrangThaiGhe trangThaiGhe) {
+    public void setXe(Xe xe) {
+        this.xe = xe;
+    }
+
+    public Ghe(String maGhe, LoaiGhe loaiGhe, TrangThaiGhe trangThaiGhe, int soGhe, int tang, float gia) {
         this.maGhe = maGhe;
         this.loaiGhe = loaiGhe;
         this.trangThaiGhe = trangThaiGhe;
+        this.soGhe = soGhe;
+        this.tang = tang;
+        this.gia = gia;
+    }
+
+    public float getGia() {
+        return gia;
+    }
+
+    public void setGia(float gia) {
+        this.gia = gia;
     }
 
     public TrangThaiGhe getTrangThaiGhe() {
@@ -76,4 +92,27 @@ public class Ghe {
         this.maGhe = maGhe;
     }
 
+    public int getSoGhe() {
+        return soGhe;
+    }
+
+    public void setSoGhe(int soGhe) {
+        this.soGhe = soGhe;
+    }
+
+    public int getTang() {
+        return tang;
+    }
+
+    public void setTang(int tang) {
+        this.tang = tang;
+    }
+
+    public int getHang() {
+        return hang;
+    }
+
+    public void setHang(int hang) {
+        this.hang = hang;
+    }
 }

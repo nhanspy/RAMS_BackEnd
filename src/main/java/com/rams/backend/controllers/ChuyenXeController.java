@@ -30,6 +30,12 @@ public class ChuyenXeController {
         return chuyenXeService.getAll();
     }
 
+    @GetMapping("/chuyenxe/ngay/{ngay}")
+    public List<ChuyenXe> tatCaChuyenXeTheoNgay(@PathVariable(name = "ngay") String ngay){
+//        List<ChuyenXe> chuyenXes = chuyenXeService.getAll();
+        return chuyenXeService.getByNgay(ngay);
+    }
+
     @GetMapping("/chuyenxe/{id}")
     public ChuyenXe layChuyenXeTheoId(@PathVariable(name = "id") String id){
         return chuyenXeService.get(id);

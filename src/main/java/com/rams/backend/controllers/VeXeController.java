@@ -1,6 +1,7 @@
 package com.rams.backend.controllers;
 
 
+import com.rams.backend.dto.VeXeDto;
 import com.rams.backend.entities.VeXe;
 import com.rams.backend.services.VeXeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,9 +26,13 @@ public class VeXeController {
     }
 
     @PostMapping("/vexe")
-    public void luuLoaiVeXe(@RequestBody VeXe VeXe){
-        System.out.println(VeXe.toString());
-        service.save(VeXe);
+    public List<String> luuLoaiVeXe(@RequestBody VeXeDto VeXe){
+        return service.save(VeXe);
+    }
+
+    @PostMapping("/vexe/updateState")
+    public String updateState(@RequestBody String[] maVe){
+        return service.updateState(maVe);
     }
 
     @DeleteMapping("/vexe/{id}")

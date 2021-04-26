@@ -1,10 +1,10 @@
 package com.rams.backend.controllers;
 
 
-import com.rams.backend.entities.Ben;
 import com.rams.backend.entities.Ghe;
-import com.rams.backend.services.BenService;
+import com.rams.backend.entities.Xe;
 import com.rams.backend.services.GheService;
+import com.rams.backend.services.XeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,6 +16,9 @@ public class GheController {
     @Autowired
     GheService gheService;
 
+    @Autowired
+    XeService xeService;
+
     @GetMapping("/ghe")
     public List<Ghe> tatCaGhe(){
         return gheService.getAll();
@@ -26,10 +29,23 @@ public class GheController {
         return gheService.get(id);
     }
 
+    @GetMapping("/ghe/xe/{maXe}")
+    public List<Ghe> getByMaXe(@PathVariable(name = "maXe") String maXe){
+        Xe xe = xeService.get(maXe);
+        return gheService.getByXe(xe);
+    }
+
     @PostMapping("/ghe")
     public void luuGhe(@RequestBody Ghe ghe){
         System.out.println(ghe.toString());
         gheService.save(ghe);
+    }
+
+    @PostMapping("/ghe/updateGhe")
+    public String updateGhe(@RequestBody String[] ghes){
+        System.out.println("----------------------");
+        System.out.println(ghes.toString());
+        return gheService.updateGhe(ghes);
     }
 
     @DeleteMapping("/ghe/{id}")

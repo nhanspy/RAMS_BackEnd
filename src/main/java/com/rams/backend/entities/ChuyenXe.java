@@ -12,7 +12,7 @@ import java.util.Set;
 public class ChuyenXe {
     @Id
     private String maChuyen;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private java.util.Date thoiGian;
 
     @ManyToOne

@@ -12,7 +12,7 @@ public class VeXe {
     @Id
     private String maVe;
 //    private String maTaiKhoanNhaXe;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date thoiGian;
 
     @ManyToOne
@@ -34,6 +34,7 @@ public class VeXe {
     private ChuyenXe chuyenXe;
 
     private float giaTien;
+    private boolean isThanhToan;
 
     @ManyToOne
     @JoinColumn(name="ma_ghe")
@@ -45,7 +46,7 @@ public class VeXe {
     public VeXe() {
     }
 
-    public VeXe(String maVe, Date thoiGian, User userNguoiDung, User userNhaXe, ChuyenXe chuyenXe, float giaTien, Ghe ghe) {
+    public VeXe(String maVe, Date thoiGian, User userNguoiDung, User userNhaXe, ChuyenXe chuyenXe, float giaTien, Ghe ghe, boolean isThanhToan) {
         this.maVe = maVe;
         this.thoiGian = thoiGian;
         this.userNguoiDung = userNguoiDung;
@@ -53,6 +54,15 @@ public class VeXe {
         this.chuyenXe = chuyenXe;
         this.giaTien = giaTien;
         this.ghe = ghe;
+        this.isThanhToan = isThanhToan;
+    }
+
+    public boolean isThanhToan() {
+        return isThanhToan;
+    }
+
+    public void setThanhToan(boolean thanhToan) {
+        isThanhToan = thanhToan;
     }
 
     public User getUserNguoiDung() {

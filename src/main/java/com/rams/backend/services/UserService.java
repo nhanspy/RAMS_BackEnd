@@ -1,6 +1,5 @@
 package com.rams.backend.services;
 
-import com.rams.backend.entities.Ben;
 import com.rams.backend.entities.role_user.User;
 import com.rams.backend.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,5 +22,9 @@ public class UserService {
 
     public List<User> getAll() {
         return repository.findAll();
+    }
+
+    public void save(User user) {
+        repository.save(user);
     }
 }
