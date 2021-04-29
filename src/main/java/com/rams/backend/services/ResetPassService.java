@@ -15,7 +15,7 @@ public interface ResetPassService {
 
     String existsByEmail(String email);
 
-    void addVerificationCode(String email) throws MessagingException, UnsupportedEncodingException, MessagingException, MessagingException;
+    void addVerificationCode(String email) throws MessagingException, UnsupportedEncodingException;
 
 
     void saveNewPassword(String password, String code);

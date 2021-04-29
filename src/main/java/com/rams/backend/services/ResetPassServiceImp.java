@@ -64,7 +64,7 @@ public class ResetPassServiceImp implements ResetPassService {
     public void sendVerificationEmailForResetPassWord(String userName, String randomCode, String email) throws MessagingException, UnsupportedEncodingException {
         String subject = "Hãy xác thực email của bạn";
         String mailContent = "";
-        String confirmUrl = "http://localhost:4200/login/verify-reset-password?code=" + randomCode;
+        String confirmUrl = "http://localhost:4200/verifypass?code=" + randomCode;
 
 
         MimeMessage message = javaMailSender.createMimeMessage();

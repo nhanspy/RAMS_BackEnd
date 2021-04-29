@@ -10,15 +10,17 @@ public class JwtResponse {
     private String username;
     private String diachi;
     private String email;
+    private String re_password;
     private List<String> roles;
 
-    public JwtResponse(String accessToken, Long id, String username,String diachi, String email, List<String> roles) {
+    public JwtResponse(String accessToken, Long id, String username, String re_password, String diachi, String email, List<String> roles) {
         this.token = accessToken;
         this.id = id;
         this.username = username;
         this.email = email;
         this.diachi = diachi;
         this.roles = roles;
+        this.re_password = re_password;
     }
 
     public JwtResponse(String jwt, Long id, String username, String email, List<String> roles) {

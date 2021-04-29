@@ -226,10 +226,7 @@ public class AuthController {
                 signUpRequest.getEmail(),
                 encoder.encode(signUpRequest.getPassword()),
                 signUpRequest.getTen(),
-                signUpRequest.getSoDienThoai(),
-                signUpRequest.getNgaySinh(),
-                signUpRequest.getDiaChi(),
-                signUpRequest.isGioiTinh()
+                signUpRequest.getSoDienThoai()
         );
 
         Set<String> strRoles = signUpRequest.getRole();

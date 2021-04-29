@@ -6,12 +6,12 @@ import com.rams.backend.payload.request.ResetPassRequest;
 import com.rams.backend.payload.request.VerifyRequest;
 import com.rams.backend.payload.response.MessageResponse;
 import com.rams.backend.services.ResetPassService;
+import com.sun.xml.messaging.saaj.packaging.mime.MessagingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import javax.mail.MessagingException;
 import java.io.UnsupportedEncodingException;
 
 @RestController
@@ -39,7 +39,7 @@ public class ResetPassController {
 
     @PostMapping("/reset-password")
 
-    public ResponseEntity<?> reset(@RequestBody MailRequest mailRequest) throws MessagingException, UnsupportedEncodingException {
+    public ResponseEntity<?> reset(@RequestBody MailRequest mailRequest) throws MessagingException, UnsupportedEncodingException, javax.mail.MessagingException {
 
         if (resetPassService.existsByEmail(mailRequest.getEmail()) != null) {
             resetPassService.addVerificationCode(mailRequest.getEmail());

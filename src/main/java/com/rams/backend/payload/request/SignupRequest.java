@@ -23,6 +23,10 @@ public class SignupRequest {
     @Size(min = 6, max = 40)
     private String password;
 
+    @NotBlank
+    @Size(min = 6, max = 40)
+    private String re_password;
+
     private String ten;
     private String soDienThoai;
     @Temporal(TemporalType.DATE)
@@ -93,6 +97,10 @@ public class SignupRequest {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getRe_password() { return re_password; }
+
+    public void setRe_password(String re_password) { this.re_password = re_password; }
 
     public Set<String> getRole() {
         return this.role;
