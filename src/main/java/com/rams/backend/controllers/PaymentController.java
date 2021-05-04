@@ -70,6 +70,7 @@ public class PaymentController {
         try {
             Payment payment = paypalService.executePayment(paymentId, payerId);
             if(payment.getState().equals("approved")){
+//                return "redirect:/send/thao ngu/nhan0095@gmail.com";
                 return "redirect:http://localhost:4200/xuatve";
             }
         } catch (PayPalRESTException e) {

@@ -1,16 +1,31 @@
 package com.rams.backend.configs;
 
+import java.util.Properties;
+
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
+
+@Configuration
 public class MailConfig {
 
-    public static final String HOST_NAME = "smtp.gmail.com";
+    @Bean
+    public JavaMailSender getJavaMailSender() {
+        JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+        mailSender.setHost("smtp.gmail.com");
+        mailSender.setPort(587);
 
-    public static final int SSL_PORT = 465; // Port for SSL
+        mailSender.setUsername(MyConstants.MY_EMAIL);
+        mailSender.setPassword(MyConstants.MY_PASSWORD);
 
-    public static final int TSL_PORT = 587; // Port for TLS/STARTTLS
+        Properties props = mailSender.getJavaMailProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.debug", "true");
 
-    public static final String APP_EMAIL = "nhan00951@gmail.com"; // your email
+        return mailSender;
+    }
 
-    public static final String APP_PASSWORD = "layanhdi"; // your password
-
-    public static final String RECEIVE_EMAIL = "gpcodervn@gmail.com";
 }
