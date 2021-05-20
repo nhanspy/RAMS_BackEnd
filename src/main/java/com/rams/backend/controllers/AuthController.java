@@ -85,11 +85,7 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-// chỗ này xem trên video hình như code khác nè có timeout nửa
-        //casi naày code cho tài khoản bình thường á ..ko phải fb gg à à oke hhee
-        // method authenticate la de dang nhap binh thuong bằng data lấy từ bảng user đúng k đúng rồi á còn gg là bảng usủaio
-        // loginRequest.getPassword() pass này client nhập. tới controller này đã đc mã hóa chưa mã hóa hết rồi á
-        Authentication authentication = authenticationManager.authenticate(
+             Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
                         loginRequest.getPassword()));
 
