@@ -44,6 +44,15 @@ public class User {
     private Date ngaySinh;
     private String diaChi;
     private boolean gioiTinh;
+    private String verificationCode;
+
+    public String getVerificationCode() {
+        return verificationCode;
+    }
+
+    public void setVerificationCode(String verificationCode) {
+        this.verificationCode = verificationCode;
+    }
 
     @ManyToMany(fetch = FetchType.LAZY)
     @JoinTable(	name = "user_roles",
@@ -80,6 +89,14 @@ public class User {
         this.ngaySinh = ngaySinh;
         this.diaChi = diaChi;
         this.gioiTinh = gioiTinh;
+    }
+
+    public User(String username, String email, String password, String diaChi, Integer soDienThoai) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.diaChi = diaChi;
+
     }
 
     public User(Long id, @NotBlank @Size(max = 20) String username, @NotBlank @Size(max = 50) @Email String email, @NotBlank @Size(max = 120) String password, String ten, String soDienThoai, Date ngaySinh, String diaChi, boolean gioiTinh, Set<Role> roles) {

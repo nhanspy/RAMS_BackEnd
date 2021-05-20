@@ -3,6 +3,7 @@ package com.rams.backend.services;
 import com.rams.backend.entities.ChuyenXe;
 import com.rams.backend.entities.Ghe;
 import com.rams.backend.entities.Xe;
+import com.rams.backend.payload.request.GheRequest;
 import com.rams.backend.repositories.ChuyenXeRepository;
 import com.rams.backend.repositories.GheRepository;
 import com.rams.backend.repositories.LoaiGheRepository;
@@ -49,6 +50,13 @@ public class GheService {
             ghe.setTrangThaiGhe(trangThaiGheRepository.getOne("mttg03"));
             save(ghe);
         }
+        return "{\"data\" : \"Success!!\"}";
+    }
+
+    public String updateTrangThaiGhe(GheRequest gheRequest) {
+        Ghe ghe = gheRepository.findById(gheRequest.getMaGhe()).get();
+        ghe.setTrangThaiGhe(trangThaiGheRepository.getOne(gheRequest.getMaTrangThaiGhe()));
+        this.save(ghe);
         return "{\"data\" : \"Success!!\"}";
     }
 }

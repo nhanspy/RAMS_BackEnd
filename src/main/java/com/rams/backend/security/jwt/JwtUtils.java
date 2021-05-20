@@ -20,21 +20,31 @@ public class JwtUtils {
 
     @Value("${bezkoder.app.jwtExpirationMs}")
     private int jwtExpirationMs;
+    @Value("kajshdfklhasdkflhlsifyiqewyfiadhsfjahdsfk")
+    String secret;
 
+    @Value("3600000")
+    int expiration;
     public String generateJwtToken(Authentication authentication) {
 
         UserDetailsImpl userPrincipal = (UserDetailsImpl) authentication.getPrincipal();
 
         return Jwts.builder()
                 .setSubject((userPrincipal.getUsername()))
-                .setIssuedAt(new Date())
+                .setIssuedAt(new Date(System.currentTimeMillis()))
                 .setExpiration(new Date((new Date()).getTime() + jwtExpirationMs))
+                .setExpiration(new Date((new Date()).getTime() +expiration))
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .signWith(SignatureAlgorithm.HS512, secret)
                 .compact();
     }
 
     public String getUserNameFromJwtToken(String token) {
         return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
+    }
+
+    public String getEmailFromToken(String autoken){
+        return Jwts.parser().setSigningKey(secret).parseClaimsJws(autoken).getBody().getSubject();
     }
 
     public boolean validateJwtToken(String authToken) {

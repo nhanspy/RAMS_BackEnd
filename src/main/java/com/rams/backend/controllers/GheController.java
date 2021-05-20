@@ -3,6 +3,7 @@ package com.rams.backend.controllers;
 
 import com.rams.backend.entities.Ghe;
 import com.rams.backend.entities.Xe;
+import com.rams.backend.payload.request.GheRequest;
 import com.rams.backend.services.GheService;
 import com.rams.backend.services.XeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,6 +47,12 @@ public class GheController {
         System.out.println("----------------------");
         System.out.println(ghes.toString());
         return gheService.updateGhe(ghes);
+    }
+
+    @PostMapping("/ghe/updateTrangThaiGhe")
+    public String updateTrangThaiGhe(@RequestBody GheRequest ghe){
+        System.out.println(ghe.toString());
+        return gheService.updateTrangThaiGhe(ghe);
     }
 
     @DeleteMapping("/ghe/{id}")

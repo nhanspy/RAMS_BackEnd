@@ -10,6 +10,8 @@ public class JwtResponse {
     private String username;
     private String email;
     private List<String> roles;
+    private String diachi;
+    private String re_password;
 
     public JwtResponse(String accessToken, Long id, String username, String email, List<String> roles) {
         this.token = accessToken;
@@ -17,6 +19,19 @@ public class JwtResponse {
         this.username = username;
         this.email = email;
         this.roles = roles;
+    }
+
+//    public JwtResponse(String jwt, Long id, String username, String email, List<String> roles) {
+//    }
+
+    public JwtResponse(String accessToken, Long id, String username, String re_password, String diachi, String email, List<String> roles) {
+        this.token = accessToken;
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.diachi = diachi;
+        this.roles = roles;
+        this.re_password = re_password;
     }
 
     public String getAccessToken() {
@@ -62,4 +77,8 @@ public class JwtResponse {
     public List<String> getRoles() {
         return roles;
     }
+
+    public String getDiachi() { return diachi; }
+
+    public void setDiachi(String diachi) { this.diachi = diachi; }
 }

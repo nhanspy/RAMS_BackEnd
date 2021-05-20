@@ -1,7 +1,9 @@
 package com.rams.backend.entities;
 
+import com.rams.backend.repositories.GheRepository;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -68,8 +70,8 @@ public class Ghe {
         this.gia = gia;
     }
 
-    public TrangThaiGhe getTrangThaiGhe() {
-        return trangThaiGhe;
+    public String getTrangThaiGhe() {
+        return trangThaiGhe.getMaTrangThai();
     }
 
     public void setTrangThaiGhe(TrangThaiGhe trangThaiGhe) {
