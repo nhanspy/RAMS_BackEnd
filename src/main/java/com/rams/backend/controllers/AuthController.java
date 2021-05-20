@@ -85,9 +85,13 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> authenticateUser(@Valid @RequestBody LoginRequest loginRequest) {
-
+// chỗ này xem trên video hình như code khác nè có timeout nửa
+        //casi naày code cho tài khoản bình thường á ..ko phải fb gg à à oke hhee
+        // method authenticate la de dang nhap binh thuong bằng data lấy từ bảng user đúng k đúng rồi á còn gg là bảng usủaio
+        // loginRequest.getPassword() pass này client nhập. tới controller này đã đc mã hóa chưa mã hóa hết rồi á
         Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(), loginRequest.getPassword()));
+                new UsernamePasswordAuthenticationToken(loginRequest.getUsername(),
+                        loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
         String jwt = jwtUtils.generateJwtToken(authentication);
@@ -301,57 +305,5 @@ public class AuthController {
         userRepository.save(user);
 
         return ResponseEntity.ok(new MessageResponse("Đăng ký thành công!"));
-    }
-
-    @PostMapping("/google")
-    public ResponseEntity<TokenDto> google(@RequestBody TokenDto tokenDto) throws IOException {
-        final NetHttpTransport transport = new NetHttpTransport();
-        final JacksonFactory jacksonFactory = JacksonFactory.getDefaultInstance();
-        GoogleIdTokenVerifier.Builder verifier =
-                new GoogleIdTokenVerifier.Builder(transport, jacksonFactory)
-                        .setAudience(Collections.singletonList(googleClientId));
-        final GoogleIdToken googleIdToken = GoogleIdToken.parse(verifier.getJsonFactory(), tokenDto.getValue());
-        final GoogleIdToken.Payload payload = googleIdToken.getPayload();
-        Usuario usuario = new Usuario();
-        if(usuarioService.existsEmail(payload.getEmail()))
-            usuario = usuarioService.getByEmail(payload.getEmail()).get();
-        else
-            usuario = saveUsuario(payload.getEmail());
-        TokenDto tokenRes = login(usuario);
-        return new ResponseEntity(tokenRes, HttpStatus.OK);
-    }
-
-    @PostMapping("/facebook")
-    public ResponseEntity<TokenDto> facebook(@RequestBody TokenDto tokenDto) throws IOException {
-        Facebook facebook = new FacebookTemplate(tokenDto.getValue());
-        final String [] fields = {"email", "picture"};
-        org.springframework.social.facebook.api.User user = facebook.fetchObject("me", org.springframework.social.facebook.api.User.class, fields);
-        Usuario usuario = new Usuario();
-        if(usuarioService.existsEmail(user.getEmail()))
-            usuario = usuarioService.getByEmail(user.getEmail()).get();
-        else
-            usuario = saveUsuario(user.getEmail());
-        TokenDto tokenRes = login(usuario);
-        return new ResponseEntity(tokenRes, HttpStatus.OK);
-    }
-
-    private TokenDto login(Usuario usuario){
-        Authentication authentication = authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(usuario.getEmail(), secretPsw)
-        );
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        String jwt = jwtUtils.generateJwtToken(authentication);
-        TokenDto tokenDto = new TokenDto();
-        tokenDto.setValue(jwt);
-        return tokenDto;
-    }
-
-    private Usuario saveUsuario(String email){
-        Usuario usuario = new Usuario(email, encoder.encode(secretPsw));
-        Rol rolUser = rolService.getByRolNombre(RolNombre.ROLE_USER).get();
-        Set<Rol> roles = new HashSet<>();
-        roles.add(rolUser);
-        usuario.setRoles(roles);
-        return usuarioService.save(usuario);
     }
 }
