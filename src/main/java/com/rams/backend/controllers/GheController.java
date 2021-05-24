@@ -1,6 +1,7 @@
 package com.rams.backend.controllers;
 
 
+import com.rams.backend.entities.Ben;
 import com.rams.backend.entities.Ghe;
 import com.rams.backend.entities.Xe;
 import com.rams.backend.payload.request.GheRequest;

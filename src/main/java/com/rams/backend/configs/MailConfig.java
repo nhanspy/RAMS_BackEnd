@@ -1,11 +1,12 @@
 package com.rams.backend.configs;
 
-import java.util.Properties;
-
+import com.rams.backend.common.MyConstants;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
+
+import java.util.Properties;
 
 @Configuration
 public class MailConfig {

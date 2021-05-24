@@ -73,7 +73,7 @@ public class ResetPassServiceImp implements ResetPassService {
         helper.setTo(email);
         helper.setSubject(subject);
         mailContent = "<p sytle='color:red;'>Xin chào " + userName + " ,<p>" + "<p> Nhấn vào link sau để xác thực email của bạn:</p>" +
-                "<h3><a href='" + confirmUrl + "'>Link Xác thực( nhấn vào đây)!</a></h3>";
+                "<h3><a href='" + confirmUrl + "'>Nhấn vào đây để xác thực!</a></h3>";
         helper.setText(mailContent, true);
         javaMailSender.send(message);
     }
