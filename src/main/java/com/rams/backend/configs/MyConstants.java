@@ -3,7 +3,7 @@ package com.rams.backend.configs;
 public class MyConstants {
 
     // Replace with your email here:
-    public static final String MY_EMAIL = "nhan00951@gmail.com";
+    public static final String MY_EMAIL = "rams.datve@gmail.com";
 
     // Replace password!!
     public static final String MY_PASSWORD = "layanhdi";
