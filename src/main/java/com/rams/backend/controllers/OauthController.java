@@ -73,10 +73,6 @@ public class OauthController {
         final GoogleIdToken.Payload payload = googleIdToken.getPayload();
         Usuario usuario = new Usuario();
         User user1 = new User();
-//        if(usuarioService.existsEmail(payload.getEmail()))
-//            usuario = usuarioService.getByEmail(payload.getEmail()).get();
-//        else
-//            usuario = saveUsuario(payload.getEmail());
         // bug
         if (userService.existsEmail(payload.getEmail())) {
             System.out.println(payload.toString());
