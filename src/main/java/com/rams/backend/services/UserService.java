@@ -19,9 +19,9 @@ import java.util.Set;
 public class UserService {
     @Autowired
     UserRepository repository;
-
-    @Autowired
-    JavaMailSender javaMailSender;
+//
+//    @Autowired
+//    JavaMailSender javaMailSender;
 
     @Autowired
     RoleRepository roleRepository;

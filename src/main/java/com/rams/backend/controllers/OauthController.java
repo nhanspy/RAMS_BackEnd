@@ -12,6 +12,7 @@ import com.rams.backend.security.jwt.JwtUtils;
 import com.rams.backend.services.RolService;
 import com.rams.backend.services.UserService;
 import com.rams.backend.services.UsuarioService;
+import com.rams.backend.entities.role_user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -22,7 +23,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.social.facebook.api.Facebook;
-import org.springframework.social.facebook.api.User;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.web.bind.annotation.*;
 
@@ -72,16 +72,16 @@ public class OauthController {
         final GoogleIdToken googleIdToken = GoogleIdToken.parse(verifier.getJsonFactory(), tokenDto.getValue());
         final GoogleIdToken.Payload payload = googleIdToken.getPayload();
         Usuario usuario = new Usuario();
-        com.rams.backend.entities.role_user.User user1 = new com.rams.backend.entities.role_user.User();
-        if(usuarioService.existsEmail(payload.getEmail()))
-            usuario = usuarioService.getByEmail(payload.getEmail()).get();
-        else
-            usuario = saveUsuario(payload.getEmail());
+        User user1 = new User();
         // bug
-        if (userService.existsEmail(payload.getEmail()))
+        if (userService.existsEmail(payload.getEmail())) {
+            System.out.println(payload.toString());
             user1 = userService.getByEmail(payload.getEmail()).get();
-        else
-            user1 =  userService.saveUser(payload.getEmail(),secretPsw);
+        }
+        else {
+            System.out.println(payload.toString());
+            user1 = userService.saveUser(payload.getEmail(), secretPsw);
+        }
         // end bug
         TokenDto tokenRes = loginGoogle(user1);
         return new ResponseEntity(tokenRes, HttpStatus.OK);
