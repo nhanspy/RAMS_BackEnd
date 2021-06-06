@@ -45,8 +45,8 @@ public class GheController {
 
     @PostMapping("/ghe/updateGhe")
     public String updateGhe(@RequestBody String[] ghes){
-        System.out.println("----------------------");
-        System.out.println(ghes.toString());
+//        System.out.println("----------------------");
+//        System.out.println(ghes.toString());
         return gheService.updateGhe(ghes);
     }
 
