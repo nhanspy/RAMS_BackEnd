@@ -1,11 +1,13 @@
 package com.rams.backend.controllers;
 
 
-import com.rams.backend.entities.Ben;
 import com.rams.backend.entities.Ghe;
 import com.rams.backend.entities.Xe;
 import com.rams.backend.payload.request.GheRequest;
+import com.rams.backend.repositories.GheRepository;
+import com.rams.backend.repositories.TrangThaiGheRepository;
 import com.rams.backend.services.GheService;
+import com.rams.backend.services.VeXeService;
 import com.rams.backend.services.XeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,14 @@ public class GheController {
 
     @Autowired
     XeService xeService;
+
+    @Autowired
+    VeXeService veXeService;
+
+    @Autowired
+    GheRepository gheRepository;
+    @Autowired
+    TrangThaiGheRepository trangThaiGheRepository;
 
     @GetMapping("/ghe")
     public List<Ghe> tatCaGhe(){
@@ -44,10 +54,10 @@ public class GheController {
     }
 
     @PostMapping("/ghe/updateGhe")
-    public String updateGhe(@RequestBody String[] ghes){
-//        System.out.println("----------------------");
-//        System.out.println(ghes.toString());
-        return gheService.updateGhe(ghes);
+    public String updateGhe(@RequestBody String[] strMaVes){
+        List<String> strMaGhes = veXeService.getMaGheTheoVeXe(strMaVes);
+        return gheService.updateGhe(strMaGhes);
+//        return "sucsess";
     }
 
     @PostMapping("/ghe/updateTrangThaiGhe")

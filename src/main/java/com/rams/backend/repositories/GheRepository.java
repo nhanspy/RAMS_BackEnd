@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface GheRepository extends JpaRepository<Ghe, String> {
     List<Ghe> findAllByXe(Xe xe);
+    Ghe findGheByMaGhe(String maGhe);
+    Ghe findGheByVeXes(String maVe);
 }

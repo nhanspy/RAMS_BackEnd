@@ -64,6 +64,17 @@ public class VeXeService {
         }
         return "{ \"data\" :  \"Success!!\"}";
     }
+    
+    public List<String> getMaGheTheoVeXe(String[] maVes){
+        VeXe veXe;
+        List<String> strMaGhe = new ArrayList<>();
+        for (String maVe:
+                maVes) {
+            veXe = veXeRepository.getOne(maVe);
+            strMaGhe.add(veXe.getGhe().getMaGhe());
+        }
+        return strMaGhe;
+    };
 
     public void save(VeXe veXe) {
         veXeRepository.save(veXe);

@@ -2,12 +2,12 @@ package com.rams.backend.common;
 
 public class MyConstants {
     // Replace with your email here:
-    public static final String MY_EMAIL = "lethao99k@gmail.com";
+    public static final String MY_EMAIL = "nhan00951@gmail.com";
 
     // Replace password!!
-    public static final String MY_PASSWORD = "lethithaocute1234";
+    public static final String MY_PASSWORD = "layanhdi";
 
     // And receiver!
-    public static final String MAIL_RECEIVER= "";
+    public static final String MAIL_RECEIVER= "nhan0095@gmail.com";
 
 }

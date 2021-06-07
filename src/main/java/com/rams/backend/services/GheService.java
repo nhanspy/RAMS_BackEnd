@@ -42,13 +42,13 @@ public class GheService {
         return gheRepository.findAll();
     }
 
-    public String updateGhe(String[] ghes) {
+    public String updateGhe(List<String> strMaGhes) {
         Ghe ghe;
-        for (String strGhe:
-                ghes) {
-            ghe = gheRepository.findById(strGhe).get();
+        for (String strMaGhe:
+                strMaGhes) {
+            ghe = get(strMaGhe);
             ghe.setTrangThaiGhe(trangThaiGheRepository.getOne("mttg03"));
-            save(ghe);
+            gheRepository.save(ghe);
         }
         return "{\"data\" : \"Success!!\"}";
     }

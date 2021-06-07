@@ -19,6 +19,15 @@ public class TicketMailRequest {
     private String link;
     private String ghe;
     private float tongTien;
+    private int tongGhe;
+
+    public int getTongGhe() {
+        return tongGhe;
+    }
+
+    public void setTongGhe(int tongGhe) {
+        this.tongGhe = tongGhe;
+    }
 
     public float getTongTien() {
         return tongTien;
