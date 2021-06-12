@@ -62,7 +62,7 @@ public class ResetPassServiceImp implements ResetPassService {
 
     }
     public void sendVerificationEmailForResetPassWord(String userName, String randomCode, String email) throws MessagingException, UnsupportedEncodingException {
-        String subject = "Hãy xác thực email của bạn";
+        String subject = "Đổi mật khẩu";
         String mailContent = "";
         String confirmUrl = "http://localhost:4200/doimatkhau?code=" + randomCode;
 
@@ -72,8 +72,8 @@ public class ResetPassServiceImp implements ResetPassService {
         helper.setFrom("lethithao2809@gmail.com");
         helper.setTo(email);
         helper.setSubject(subject);
-        mailContent = "<p sytle='color:red;'>Xin chào " + userName + " ,<p>" + "<p> Nhấn vào link sau để xác thực email của bạn:</p>" +
-                "<h3><a href='" + confirmUrl + "'>Nhấn vào đây để xác thực!</a></h3>";
+        mailContent = "<p sytle='color:red;'>Xin chào " + userName + " ,<p>" + "<p> Nhấn vào link sau để đổi mật khẩu:</p>" +
+                "<h3><a href='" + confirmUrl + "'>Nhấn vào đây!</a></h3>";
         helper.setText(mailContent, true);
         javaMailSender.send(message);
     }
