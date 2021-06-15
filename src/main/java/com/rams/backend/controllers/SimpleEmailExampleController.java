@@ -82,7 +82,7 @@ public class SimpleEmailExampleController {
 
         MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
 
-        helper.setTo(MyConstants.FRIEND_EMAIL);
+        helper.setTo(ticket.getMail());
         helper.setSubject("successful ticket booking !!");
 //        byte[] bytes = ZXingHelper.getQRCodeImage(ticket.getMaVe(), 300, 300);
 //        String path2 = "data\\qrcode.png";
@@ -168,10 +168,10 @@ public class SimpleEmailExampleController {
                 "                                            \n" +
                 "                                            <tr style=\"font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\">\n" +
                 "                                                <td style=\"font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;\" valign=\"top\" align=\"center\">\n" +
-                "                                                    <img\n" +
-                "                                                        src=\"https://ci4.googleusercontent.com/proxy/NQwRSZBhS_GJDAPhkLiU1rXV6uec7DxPmxSVN66eyZaVQGUjiMBas5ZONjPEQFaskrMtq5GHHgIxcbtrUG7--ItHaLtBeiE68gEKuzAwu2rTGnheTgodGVj4nJ0Uf2g3kyKhD5GLJ-6y-DXlpTG9R9Rc4dZBRS1YCvA_Jp4itPM1D0UmeNXvM6aTNDdhuTGrLyaTPHaKjaViin8OiUVGpPgziK0RvYssARc=s0-d-e1-ft#https://barcode.tec-it.com/barcode.ashx?data=127542644&amp;code+=Code128&amp;multiplebarcodes=true&amp;translate-esc=true&amp;unit=Fit&amp;dpi=96&amp;imagetype=Png&amp;rotation=0\"\n" +
-                "                                                        class=\"CToWUd\"\n" +
-                "                                                    />\n" +
+//                "                                                    <img\n" +
+//                "                                                        src=\"https://ci4.googleusercontent.com/proxy/NQwRSZBhS_GJDAPhkLiU1rXV6uec7DxPmxSVN66eyZaVQGUjiMBas5ZONjPEQFaskrMtq5GHHgIxcbtrUG7--ItHaLtBeiE68gEKuzAwu2rTGnheTgodGVj4nJ0Uf2g3kyKhD5GLJ-6y-DXlpTG9R9Rc4dZBRS1YCvA_Jp4itPM1D0UmeNXvM6aTNDdhuTGrLyaTPHaKjaViin8OiUVGpPgziK0RvYssARc=s0-d-e1-ft#https://barcode.tec-it.com/barcode.ashx?data=127542644&amp;code+=Code128&amp;multiplebarcodes=true&amp;translate-esc=true&amp;unit=Fit&amp;dpi=96&amp;imagetype=Png&amp;rotation=0\"\n" +
+//                "                                                        class=\"CToWUd\"\n" +
+//                "                                                    />\n" +
                 "                                                </td>\n" +
                 "                                            </tr>\n" +
                 "                                            <tr style=\"font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\">\n" +
@@ -568,10 +568,10 @@ public class SimpleEmailExampleController {
                 "                \"                            </tr>\\n\" +\n" +
                 "                \"                            <tr style=\\\"font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\\\">\\n\" +\n" +
                 "                \"                                <td style=\\\"font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; vertical-align: top; margin: 0; padding: 5px 0;\\\" valign=\\\"top\\\" align=\\\"center\\\">\\n\" +\n" +
-                "                \"                                    <img\\n\" +\n" +
-                "                \"                                        src=\\\"https://ci4.googleusercontent.com/proxy/NQwRSZBhS_GJDAPhkLiU1rXV6uec7DxPmxSVN66eyZaVQGUjiMBas5ZONjPEQFaskrMtq5GHHgIxcbtrUG7--ItHaLtBeiE68gEKuzAwu2rTGnheTgodGVj4nJ0Uf2g3kyKhD5GLJ-6y-DXlpTG9R9Rc4dZBRS1YCvA_Jp4itPM1D0UmeNXvM6aTNDdhuTGrLyaTPHaKjaViin8OiUVGpPgziK0RvYssARc=s0-d-e1-ft#https://barcode.tec-it.com/barcode.ashx?data=127542644&amp;code+=Code128&amp;multiplebarcodes=true&amp;translate-esc=true&amp;unit=Fit&amp;dpi=96&amp;imagetype=Png&amp;rotation=0\\\"\\n\" +\n" +
-                "                \"                                        class=\\\"CToWUd\\\"\\n\" +\n" +
-                "                \"                                    />\\n\" +\n" +
+//                "                \"                                    <img\\n\" +\n" +
+//                "                \"                                        src=\\\"https://ci4.googleusercontent.com/proxy/NQwRSZBhS_GJDAPhkLiU1rXV6uec7DxPmxSVN66eyZaVQGUjiMBas5ZONjPEQFaskrMtq5GHHgIxcbtrUG7--ItHaLtBeiE68gEKuzAwu2rTGnheTgodGVj4nJ0Uf2g3kyKhD5GLJ-6y-DXlpTG9R9Rc4dZBRS1YCvA_Jp4itPM1D0UmeNXvM6aTNDdhuTGrLyaTPHaKjaViin8OiUVGpPgziK0RvYssARc=s0-d-e1-ft#https://barcode.tec-it.com/barcode.ashx?data=127542644&amp;code+=Code128&amp;multiplebarcodes=true&amp;translate-esc=true&amp;unit=Fit&amp;dpi=96&amp;imagetype=Png&amp;rotation=0\\\"\\n\" +\n" +
+//                "                \"                                        class=\\\"CToWUd\\\"\\n\" +\n" +
+//                "                \"                                    />\\n\" +\n" +
                 "                \"                                </td>\\n\" +\n" +
                 "                \"                            </tr>\\n\" +\n" +
                 "                \"                            <tr style=\\\"font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\\\">\\n\" +\n" +
