@@ -31,7 +31,7 @@ public class VeXeController {
     }
 
     @PostMapping("/vexe/updateState")
-    public String updateState(@RequestBody String[] maVe){
+    public List<String> updateState(@RequestBody String[] maVe){
         return service.updateState(maVe);
     }
 
@@ -40,4 +40,9 @@ public class VeXeController {
         service.delete(id);
     }
 
+    @PostMapping("/vexe/soatve")
+    public String soatVe(@RequestBody String code){
+        System.out.println("123");
+        return service.soatVe(code);
+    }
 }

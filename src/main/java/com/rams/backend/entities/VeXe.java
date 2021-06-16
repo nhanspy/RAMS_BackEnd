@@ -42,6 +42,8 @@ public class VeXe {
     @ToString.Exclude
     private Ghe ghe;
 
+    private String code;
+
 
     public VeXe() {
     }
@@ -55,6 +57,14 @@ public class VeXe {
         this.giaTien = giaTien;
         this.ghe = ghe;
         this.isThanhToan = isThanhToan;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public boolean isThanhToan() {

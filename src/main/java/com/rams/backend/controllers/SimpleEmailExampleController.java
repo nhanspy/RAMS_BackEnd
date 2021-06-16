@@ -83,7 +83,7 @@ public class SimpleEmailExampleController {
         MimeMessageHelper helper = new MimeMessageHelper(message, multipart);
 
         helper.setTo(ticket.getMail());
-        helper.setSubject("successful ticket booking !!");
+        helper.setSubject("Successful ticket booking !!");
 //        byte[] bytes = ZXingHelper.getQRCodeImage(ticket.getMaVe(), 300, 300);
 //        String path2 = "data\\qrcode.png";
 //        FileUtils.writeByteArrayToFile(new File(path2), bytes);
@@ -251,7 +251,7 @@ public class SimpleEmailExampleController {
                 "                                                                                    align=\"right\"\n" +
                 "                                                                                    valign=\"top\"\n" +
                 "                                                                                >\n" +
-                "                                                                                    "+ ticket.getMaVe() +"\n" +
+                "                                                                                    "+ ticket.getCodes().toArray()[0] +"\n" +
                 "                                                                                </td>\n" +
                 "                                                                            </tr>\n" +
                 "                                                                            <tr style=\"font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; box-sizing: border-box; font-size: 14px; margin: 0;\">\n" +
@@ -489,7 +489,7 @@ public class SimpleEmailExampleController {
 
         String path2 = "data\\qrcode.png";
 
-        byte[] bytes = ZXingHelper.getQRCodeImage("Tran Viet Nhan", 300, 300);
+        byte[] bytes = ZXingHelper.getQRCodeImage(ticket.getCodes().toArray()[0].toString(), 300, 300);
         FileUtils.writeByteArrayToFile(new File(path2), bytes);
 
         FileSystemResource file1 = new FileSystemResource(new File(path2));

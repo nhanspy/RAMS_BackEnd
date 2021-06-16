@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -20,9 +21,18 @@ public class TicketMailRequest {
     private String ghe;
     private float tongTien;
     private int tongGhe;
+    private List<String> codes;
 
     public int getTongGhe() {
         return tongGhe;
+    }
+
+    public List<String> getCodes() {
+        return codes;
+    }
+
+    public void setCodes(List<String> codes) {
+        this.codes = codes;
     }
 
     public void setTongGhe(int tongGhe) {
